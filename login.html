@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="uname">User Name:</label>
+        <input type="text" id="uname" name="uname">
+        <br>
+        <label for="pass">Enter Password:</label>
+        <input type="password" id="pass">
+        <br>
+        <button type="submit" id="sub">Submit</button>
+    </form>
+    <script>
+        document.getElementById('sub').addEventListener('click',()=>{
+            let uname = document.getElementById('uname').value;
+            let pass = document.getElementById('pass').value;
+            console.log(uname,pass)
+            if( uname == 'neil paul' && pass=='mspj')
+            {
+                window.alert("Welcome")
+            }
+            else{
+                window.alert("Sorry")
+            }
+        })
+    </script>
+</body>
+</html>
