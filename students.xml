@@ -1,0 +1,20 @@
+<students>
+    <student>
+        <name>Neil Paul</name>
+        <marks>512</marks>
+        <result>Fail</result>
+        <regno>21137057</regno>
+    </student>
+    <student>
+        <name>Naresh</name>
+        <marks>560</marks>
+        <result>Pass</result>
+        <regno>21137042</regno>
+    </student>
+    <student>
+        <name>Ash</name>
+        <marks>240</marks>
+        <result>detained</result>
+        <regno>21137018</regno>
+    </student>
+</students>

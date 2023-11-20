@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#">
+        <label for="regno">Enter the Register No.:</label>
+        <input type="number" id="checkreg">
+        <button type="submit" id="sub">Check</button>
+    </form>
+    <table>
+        <tr>
+            <th>Register No.:</th>
+            <th>Name :</th>
+            <th>Score:</th>
+            <th>Result:</th>
+        </tr>
+        <tr>
+            <td id="rno"></td>
+            <td id="name"></td>
+            <td id="score"></td>
+            <td id="result"></td>
+        </tr>
+    </table>
+    <script>
+        const xml = new XMLHttpRequest();
+        let resp;
+        xml.onreadystatechange = function(){
+            if (this.readyState == 4 && this.status == 200) {
+                resp=xml.responseXML
+                console.log(resp.getElementsByTagName('student'))
+            }
+        }
+        xml.open('GET','students.xml',true)
+        xml.send();
+        document.getElementById('sub').addEventListener('click',()=>{
+            for(i=0;i<resp.getElementsByTagName('student').length;i++)
+            {
+                if(resp.getElementsByTagName('student')[i].getElementsByTagName('regno')[0].childNodes[0].nodeValue == document.getElementById('checkreg').value)
+                {
+                    document.getElementById('rno').innerText=resp.getElementsByTagName('student')[i].getElementsByTagName('regno')[0].childNodes[0].nodeValue
+                    document.getElementById('name').innerText=resp.getElementsByTagName('student')[i].getElementsByTagName('name')[0].childNodes[0].nodeValue
+                    document.getElementById('score').innerText=resp.getElementsByTagName('student')[i].getElementsByTagName('marks')[0].childNodes[0].nodeValue
+                    document.getElementById('result').innerText=resp.getElementsByTagName('student')[i].getElementsByTagName('result')[0].childNodes[0].nodeValue
+                }
+            }              
+        })
+    </script>
+</body>
+</html>
